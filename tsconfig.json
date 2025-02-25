@@ -1,29 +1,18 @@
 {
   "compilerOptions": {
-    /* Language and Environment */
     "target": "ES2020",
-    
-    /* Modules */
-    "module": "CommonJS",   // Change this from "ESNext" to "CommonJS"
-    "moduleResolution": "node",  // Specify node-style module resolution
-
-    /* Other options */
+    "module": "ESNext", // Or "node16", depending on your setup
+    "moduleResolution": "node", // Ensures node-style resolution
+    "baseUrl": "server/src", // Base directory for non-relative imports
+    "paths": {
+      "@models/*": ["models/*"] // Example path alias for models directory
+    },
+    "outDir": "dist",
     "skipLibCheck": true,
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Type Checking */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "useUnknownInCatchVariables": true
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "server/src/**/*"

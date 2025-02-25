@@ -4,20 +4,17 @@ import {
   createUser,
   getSingleUser,
   saveBook,
-  deleteBook,
-  login,
-} from '../../controllers/user-controller.js';
+  deleteBook,  // Import deleteBook
+  login         // Import login
+} from '../../controllers/user-controller';  // Make sure the path is correct
 
 // import middleware
-import { authenticateToken } from '../../services/auth.js';
+import { authenticateToken } from '../../services/auth';
 
-// put authMiddleware anywhere we need to send a token for verification of user
+// Define the routes
 router.route('/').post(createUser).put(authenticateToken, saveBook);
-
-router.route('/login').post(login);
-
+router.route('/login').post(login);  // Route for login
 router.route('/me').get(authenticateToken, getSingleUser);
-
-router.route('/books/:bookId').delete(authenticateToken, deleteBook);
+router.route('/books/:bookId').delete(authenticateToken, deleteBook);  // Route for deleting a book
 
 export default router;

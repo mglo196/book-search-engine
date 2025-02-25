@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+
+# TypeScript build output
+dist/
+build/
+
+# Environment files (example, you may want to exclude these from Git)
+.env
+.env.local
+
+# Log files
+*.log
+
+# OS generated files (macOS, Windows, etc.)
+.DS_Store
+Thumbs.db
+
+# IDE and editor settings (e.g., VSCode)
+.vscode/
+.idea/
+*.sublime-workspace

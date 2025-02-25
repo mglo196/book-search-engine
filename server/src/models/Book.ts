@@ -10,7 +10,7 @@ export interface IBook extends Document {
 }
 
 // Define the Mongoose schema
-const bookSchema = new Schema<IBook>({
+export const bookSchema = new Schema<IBook>({
   title: { type: String, required: true },
   authors: { type: [String], required: true },
   description: { type: String, required: true },
@@ -18,5 +18,10 @@ const bookSchema = new Schema<IBook>({
   link: { type: String, required: true },
 });
 
+// Define BookDocument as a type that combines IBook and Mongoose's Document
+export type BookDocument = IBook & Document; // Explicitly define the BookDocument type
+
 // Create the Mongoose model
 export const Book = mongoose.model<IBook>('Book', bookSchema);
+
+
