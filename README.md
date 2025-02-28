@@ -1,5 +1,5 @@
 # book-search-engine
-# 20 MERN: Book Search Engine
+# 18 MERN: Book Search Engine
 [![License: MIT](https://img.shields.io/github/license/CailinBellWold/Book-Search-Engine?style=plastic)](https://opensource.org/licenses/MIT)
 
 ## Description
@@ -39,7 +39,6 @@ This assignment includes:
 
 ## Technologies Utilized
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- [Heroku](https://www.heroku.com)
 - [NPM Apollo Client Package](https://www.npmjs.com/package/stripe)
 - [NPM Apollo-Server-Express Package](https://www.npmjs.com/package/apollo-server-express)
 - [NPM GraphQL Package](https://www.npmjs.com/package/graphql)
