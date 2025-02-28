@@ -6,7 +6,7 @@ import { ObjectId } from 'mongoose';  // Import ObjectId from mongoose
 import dotenv from 'dotenv';
 dotenv.config();
 
-interface JwtPayload {
+export interface JwtPayload {
   _id: ObjectId;
   username: string;
   email: string,

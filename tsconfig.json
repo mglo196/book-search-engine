@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext", // Or "node16", depending on your setup
-    "moduleResolution": "node", // Ensures node-style resolution
-    "baseUrl": "server/src", // Base directory for non-relative imports
-    "paths": {
-      "@models/*": ["models/*"] // Example path alias for models directory
-    },
-    "outDir": "dist",
-    "skipLibCheck": true,
-    "allowJs": true,
-    "checkJs": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "./dist",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "baseUrl": "server/src", // The root folder to resolve relative imports
+    "paths": {
+      "@models/*": ["models/*"], // Alias for models folder
+      "@services/*": ["services/*"] // Alias for services folder
+    },
+    "skipLibCheck": true, // Skip checking of library files for type errors
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "strict": true // Enable strict type-checking options
   },
   "include": [
-    "server/src/**/*"
+    "server/src/**/*" // Include all files in server/src
   ]
 }
+

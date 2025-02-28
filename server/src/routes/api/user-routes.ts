@@ -6,7 +6,7 @@ import {
   saveBook,
   deleteBook,  // Import deleteBook
   login         // Import login
-} from '../../controllers/user-controller';  // Make sure the path is correct
+} from '../../controllers/user-controller.js';  // Make sure the path is correct
 
 // import middleware
 import { authenticateToken } from '../../services/auth';

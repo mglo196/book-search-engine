@@ -13,7 +13,7 @@ declare global {
 }
 import { ObjectId } from 'mongoose';
 // src/types/express.d.ts
-import { JwtPayload } from '../services/auth'; // Adjust this if needed
+import { JwtPayload } from '@services/auth';  // Adjust this if needed
 
 declare global {
   namespace Express {

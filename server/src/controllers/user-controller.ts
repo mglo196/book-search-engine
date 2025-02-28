@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import User from '@models/User'; // Correct import for default export
+import User from '@models/User';  // Correct import for User model
+import { RequestHandler } from 'express'; // Import the RequestHandler type
 import { Book } from '@models/Book';  // Import Book model
 import bcrypt from 'bcryptjs';  // If you're using bcrypt for password hashing
 import jwt from 'jsonwebtoken';  // For generating JWT tokens
@@ -14,21 +15,31 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
-// Route handler for getting a single user
-export const getSingleUser = async (req: Request, res: Response): Promise<void> => {
+// Updated function with explicit return type as void
+export const getSingleUser: RequestHandler = async (req: Request, res: Response): Promise<void> => {
   try {
-    const user = await User.findById(req.user._id);  // Example, assuming user is attached to req.user
+    // Check if req.user exists (authentication check)
+    if (!req.user) {
+      res.status(401).json({ message: 'User not authenticated' });
+      return; // Ensure we return after sending the response
+    }
+
+    // Fetch user by ID (using req.user._id which should be set by authentication middleware)
+    const user = await User.findById(req.user._id);
+
     if (!user) {
       res.status(404).json({ message: 'User not found' });
-    } else {
-      res.json(user);
+      return; // Return to avoid sending multiple responses
     }
+
+    res.json(user);  // Return the response here
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to fetch user' });
   }
 };
 
-// Route handler for saving a book (just an example)
+// Route handler for saving a book
 export const saveBook = async (req: Request, res: Response): Promise<void> => {
   try {
     const book = await Book.create(req.body);  // Example usage of Book model
